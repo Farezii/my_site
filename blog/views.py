@@ -1,65 +1,9 @@
 from django.shortcuts import render
 from datetime import date
 
-all_posts = [
-    {
-        'slug': 'hike-in-the-mountains',
-        'image': 'mountains.png',
-        'author': 'Farezi',
-        'date': date(2021, 7, 21),
-        'title': 'Mountain Hiking',
-        'excerpt': 'There\'s nothing like climbing mountains of garbage. God it stinks.',
-        'content': '''
-        Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. 
-        Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. 
-        Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. 
-        Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. 
-        Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. Crazy? I was crazy one. They put me in a room. A rubber room. A rubber room filled with rats. And rats make me crazy. 
-        '''
-    },
-    {
-        "slug": "programming-is-fun",
-        "image": "coding.jpg",
-        "author": "Farezi",
-        "date": date(2022, 3, 10),
-        "title": "Programming Is Great!",
-        "excerpt": "Did you ever spend hours searching that one error in your code? Yep - that's what happened to me yesterday...",
-        "content": """
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
-          aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
-          velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
+from .models import Post
 
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
-          aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
-          velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
-
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
-          aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
-          velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
-        """
-    },
-    {
-        "slug": "into-the-woods",
-        "image": "woods.png",
-        "author": "Farezi",
-        "date": date(2020, 8, 5),
-        "title": "Nature At Its Best",
-        "excerpt": "Nature is amazing! The amount of inspiration I get when walking in nature is incredible!",
-        "content": """
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
-          aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
-          velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
-
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
-          aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
-          velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
-
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
-          aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
-          velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
-        """
-    }
-]
+all_posts = []
 
 
 def get_date(post):
