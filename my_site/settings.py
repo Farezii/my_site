@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-piv$=f=z%#i5_k%qlu1q)r_$z0-d$jf5%2w@nl2#blooo7&86y
 DEBUG = getenv('IS_DEV', True)
 
 ALLOWED_HOSTS = [
-    getenv('APP_HOST'), '127.0.0.1'
+    getenv('APP_HOST'), '127.0.0.1', '0.0.0.0', 'localhost'
 ]
 
 
@@ -40,11 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -80,7 +82,7 @@ WSGI_APPLICATION = 'my_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': getenv('DB_PATH', BASE_DIR / 'db.sqlite3') ,
     }
 }
 
@@ -134,3 +136,12 @@ MEDIA_URL = '/files/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
